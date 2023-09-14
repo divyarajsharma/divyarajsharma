@@ -1,5 +1,5 @@
 {
-	"name": "git check",
+	"name": "2ndtest",
 	"properties": {
 		"activities": [
 			{
@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "combined_file",
+						"referenceName": "aldlsdf",
 						"type": "DataFlowReference"
 					},
 					"compute": {
