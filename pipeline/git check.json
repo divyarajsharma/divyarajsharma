@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "combined_file",
+						"referenceName": "Truncate load",
 						"type": "DataFlowReference"
 					},
 					"compute": {
