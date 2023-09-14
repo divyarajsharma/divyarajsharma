@@ -1,0 +1,66 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "SutherlandDFctdemo"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"LS_Snyaspe_demo123_connectionString": {
+			"value": ""
+		},
+		"LS_Synaspe_ITinfra_connectionString": {
+			"value": ""
+		},
+		"LS_Wipro_Demo_accountKey": {
+			"value": ""
+		},
+		"SharePointOnlineList1_servicePrincipalKey": {
+			"value": ""
+		},
+		"SqlServer1_connectionString": {
+			"value": ""
+		},
+		"SqlServer2_connectionString": {
+			"value": ""
+		},
+		"Teradata1_connectionString": {
+			"value": ""
+		},
+		"adlsls_accountKey": {
+			"value": ""
+		},
+		"m2ols_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://celebaladls123.dfs.core.windows.net/"
+		},
+		"HttpServer1_properties_typeProperties_url": {
+			"value": "https://celebaltech.sharepoint.com"
+		},
+		"LS_Wipro_Demo_properties_typeProperties_url": {
+			"value": "https://celebaladls123.dfs.core.windows.net/"
+		},
+		"SharePointOnlineList1_properties_typeProperties_servicePrincipalId": {
+			"value": "d425995a-77dc-4d35-b37f-8c1430b34eef"
+		},
+		"adlsls_properties_typeProperties_url": {
+			"value": "https://celebaladls123.dfs.core.windows.net/"
+		},
+		"m2ols_properties_typeProperties_url": {
+			"value": "https://celebaladls123.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
