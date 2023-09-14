@@ -1,0 +1,95 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Web1",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://accounts.accesscontrol.windows.net/e4e34038-ea1f-4882-b6e8-ccd776459ca0/tokens/OAuth/2",
+					"method": "POST",
+					"headers": {
+						"Content-Type": "application/x-www-form-urlencoded"
+					},
+					"body": "grant_type=client_credentials&client_id=d425995a-77dc-4d35-b37f-8c1430b34eef@e4e34038-ea1f-4882-b6e8-ccd776459ca0&client_secret=I-~8Q~YQ4CdPLRawqIVV6uOOUQae_CtR-EfSgbrp&resource=00000003-0000-0ff1-ce00-000000000000/celebaltech.sharepoint.com@e4e34038-ea1f-4882-b6e8-ccd776459ca0"
+				}
+			},
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "Web1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "ExcelSource",
+						"storeSettings": {
+							"type": "HttpReadSettings",
+							"requestMethod": "GET",
+							"additionalHeaders": {
+								"value": "@{concat('Authorization: Bearer ', activity('Web1').output.access_token)}",
+								"type": "Expression"
+							},
+							"requestTimeout": ""
+						}
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"writeBehavior": "Insert",
+						"sqlWriterUseTableLock": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Excel1",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS_Synapse_ITinfra123",
+						"type": "DatasetReference",
+						"parameters": {
+							"Table_Schema": "gg",
+							"Table_Name": "fd"
+						}
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2023-04-24T06:42:53Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

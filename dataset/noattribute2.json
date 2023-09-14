@@ -1,0 +1,24 @@
+{
+	"name": "noattribute2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adlsls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "smaple2.csv",
+				"fileSystem": "onefile"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

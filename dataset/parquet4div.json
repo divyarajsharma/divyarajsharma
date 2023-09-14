@@ -1,0 +1,21 @@
+{
+	"name": "parquet4div",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adlsls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "parquet4div",
+				"fileSystem": "onefile"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

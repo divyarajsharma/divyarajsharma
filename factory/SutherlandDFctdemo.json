@@ -1,0 +1,9 @@
+{
+	"name": "SutherlandDFctdemo",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "579cf427-6a74-440d-814e-917fdbf03db9",
+		"tenantId": "e4e34038-ea1f-4882-b6e8-ccd776459ca0"
+	}
+}

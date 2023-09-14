@@ -1,0 +1,20 @@
+{
+	"name": "Excel1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "HttpServer1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "sheet",
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": "/sites/sharepointaccess/_api/web/GetFileByServerRelativeUrl('/sites/sharepointaccess/Shared%20Documents/aman/output_3_days.xlsx')/$value"
+			}
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

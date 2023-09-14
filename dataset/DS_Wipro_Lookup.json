@@ -1,0 +1,22 @@
+{
+	"name": "DS_Wipro_Lookup",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Wipro_Demo",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "wipro_lookup",
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "wipro_lookup.xlsx",
+				"fileSystem": "wipro-demo"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

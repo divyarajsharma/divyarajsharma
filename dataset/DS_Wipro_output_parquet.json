@@ -1,0 +1,30 @@
+{
+	"name": "DS_Wipro_output_parquet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Wipro_Demo",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"fn": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().fn",
+					"type": "Expression"
+				},
+				"folderPath": "output",
+				"fileSystem": "wipro-demo"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

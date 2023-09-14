@@ -1,0 +1,70 @@
+{
+	"name": "aldlsdf",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "SourceDS",
+						"type": "DatasetReference"
+					},
+					"name": "sourcestream"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "parquet4div",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "select1"
+				},
+				{
+					"name": "alterRow1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          Name as string,",
+				"          Age as short '000',",
+				"          Gender as string,",
+				"          DOB as date 'yyyy-MM-dd'",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: true,",
+				"     fileList: true,",
+				"     multiLineRow: true) ~> sourcestream",
+				"sourcestream select(mapColumn(",
+				"          Name,",
+				"          Age,",
+				"          Gender,",
+				"          DOB",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"select1 alterRow(upsertIf(true())) ~> alterRow1",
+				"alterRow1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'parquet',",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     mapColumn(",
+				"          Name,",
+				"          Age,",
+				"          Gender,",
+				"          DOB",
+				"     )) ~> sink1"
+			]
+		}
+	}
+}

@@ -1,0 +1,37 @@
+{
+	"name": "SourceDS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adlsls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "smaple3.csv",
+				"fileSystem": "onefile"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Name",
+				"type": "String"
+			},
+			{
+				"name": " age",
+				"type": "String"
+			},
+			{
+				"name": " gender",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
